@@ -17,18 +17,26 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("RGB调色盘")
         self.setGeometry(100, 100, 500, 500)  # 设置窗口大小和位置
 
-        # 创建滑动条
-        self.red_slider = QSlider(Qt.Horizontal, self)
-        self.red_slider.setMaximum(255)
-        self.red_slider.valueChanged.connect(self.update_color)
+        with open("config.json", "r") as f:
+            # 记录文件中保存的RGB拖动条位置
+            config = eval(f.read())
 
-        self.green_slider = QSlider(Qt.Horizontal, self)
-        self.green_slider.setMaximum(255)
-        self.green_slider.valueChanged.connect(self.update_color)
+            # 创建滑动条
+            self.red_slider = QSlider(Qt.Horizontal, self)
+            self.blue_slider.setRange(0,255)
+            self.red_slider.setSliderPosition(int(config["R"]))
+            self.red_slider.valueChanged.connect(self.update_color)
 
-        self.blue_slider = QSlider(Qt.Horizontal, self)
-        self.blue_slider.setMaximum(255)
-        self.blue_slider.valueChanged.connect(self.update_color)
+            self.green_slider = QSlider(Qt.Horizontal, self)
+            self.blue_slider.setRange(0,255)
+            self.green_slider.setSliderPosition(int(config["G"]))
+            self.green_slider.valueChanged.connect(self.update_color)
+
+            self.blue_slider = QSlider(Qt.Horizontal, self)
+            self.blue_slider.setRange(0,255)
+            self.blue_slider.setSliderPosition(int(config["B"]))
+            self.blue_slider.valueChanged.connect(self.update_color)
+            f.close()
 
         # 创建垂直布局并将滑动条添加进去
         layout = QVBoxLayout()
@@ -54,6 +62,10 @@ class MainWindow(QMainWindow):
         green = self.green_slider.value()
         blue = self.blue_slider.value()
 
+        R = red
+        G = green
+        B = blue
+
         # 创建颜色
         color = QColor(red, green, blue)
 
@@ -76,7 +88,11 @@ class MainWindow(QMainWindow):
 
         with open("config.json","w") as f:
             config["RGB"] = RGB
+            config["R"] = R
+            config["G"] = G
+            config["B"] = B
             f.write(str(config))
+
             f.close()
 
         # 根据颜色更新画布
