@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>30</y>
+      <y>50</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>30</y>
+      <y>50</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>30</y>
+      <y>50</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>130</y>
+      <y>150</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -70,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>130</y>
+      <y>150</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -83,7 +83,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>130</y>
+      <y>150</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -96,7 +96,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>230</y>
+      <y>250</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -109,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>150</x>
-      <y>230</y>
+      <y>250</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -122,7 +122,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>230</y>
+      <y>250</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -165,7 +165,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>360</y>
+      <y>380</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -177,14 +177,14 @@
    <widget class="QComboBox" name="comboBox_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>360</y>
-      <width>111</width>
+      <x>50</x>
+      <y>380</y>
+      <width>121</width>
       <height>28</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_11">
+   <widget class="QPushButton" name="pushButton_preview">
     <property name="geometry">
      <rect>
       <x>450</x>
@@ -227,13 +227,39 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>360</y>
+      <y>380</y>
       <width>93</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
      <string>关闭串口</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_back">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>101</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>返回方向调整</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_scan">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>350</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>扫描串口</string>
     </property>
    </widget>
   </widget>

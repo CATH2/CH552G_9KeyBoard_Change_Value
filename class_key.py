@@ -7,7 +7,8 @@
 import serial
 
 class KEY:
-    def __init__(self,KEYMODE="00",ID="00",FunCode1 = "00",FunCode2 = "00",FunCode3 = "00",FunCode4 = "00",FunCode5 = "00"):
+    def __init__(self,matrix = [[9,6,3],[2,5,8],[7,4,1]],KEYMODE="00",ID="00",FunCode1 = "00",FunCode2 = "00",FunCode3 = "00",FunCode4 = "00",FunCode5 = "00"):
+        self.matrix = matrix
         self.KeyMode = KEYMODE
         self.id = ID
         self.Funcode1 = FunCode1

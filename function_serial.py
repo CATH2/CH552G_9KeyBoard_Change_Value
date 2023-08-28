@@ -29,18 +29,18 @@ def serial_connect(COM):
 
 
 
-if __name__ == '__main__':
-
-    serial_scan()
-    ser = serial_connect("COM5")
-    ser.setDTR(True)
-
-    while True:
-    # 发送数据
-        hex_data = "4C0200123f560100410000FF010142FF010243FF010344FF010445FF010546FF010647FF010748FF010849FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF01"
-        ser.write(bytes.fromhex(hex_data))
-    # 读取数据
-        data = ser.read(10)  # 读取10个字节的数据
-        print(data)
-    # 关闭串口
-    ser.close()
+# if __name__ == '__main__':
+#
+#     serial_scan()
+#     ser = serial_connect("COM5")
+#     ser.setDTR(True)
+#
+#     while True:
+#     # 发送数据
+#         hex_data = "4C0200123f560100410000FF010142FF010243FF010344FF010445FF010546FF010647FF010748FF010849FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF01"
+#         ser.write(bytes.fromhex(hex_data))
+#     # 读取数据
+#         data = ser.read(10)  # 读取10个字节的数据
+#         print(data)
+#     # 关闭串口
+#     ser.close()
