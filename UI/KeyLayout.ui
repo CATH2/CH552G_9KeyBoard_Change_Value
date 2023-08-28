@@ -265,10 +265,10 @@
    <widget class="QLabel" name="label_LinkState">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>61</x>
       <y>350</y>
-      <width>72</width>
-      <height>15</height>
+      <width>101</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -301,38 +301,5 @@
   </action>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>pushButton_open</sender>
-   <signal>clicked()</signal>
-   <receiver>pushButton_close</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>227</x>
-     <y>398</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>346</x>
-     <y>392</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_close</sender>
-   <signal>clicked()</signal>
-   <receiver>pushButton_open</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>317</x>
-     <y>371</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>227</x>
-     <y>386</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -76,7 +76,7 @@ class Ui_MainWindow(object):
         self.pushButton_scan.setGeometry(QtCore.QRect(190, 350, 93, 28))
         self.pushButton_scan.setObjectName("pushButton_scan")
         self.label_LinkState = QtWidgets.QLabel(self.centralwidget)
-        self.label_LinkState.setGeometry(QtCore.QRect(80, 350, 72, 15))
+        self.label_LinkState.setGeometry(QtCore.QRect(61, 350, 101, 20))
         self.label_LinkState.setText("")
         self.label_LinkState.setObjectName("label_LinkState")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -95,8 +95,6 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuasd.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.pushButton_open.clicked.connect(self.pushButton_close.hide) # type: ignore
-        self.pushButton_close.clicked.connect(self.pushButton_open.hide) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

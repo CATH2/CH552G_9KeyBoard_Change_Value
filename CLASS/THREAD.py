@@ -18,7 +18,7 @@ class OpenSerialThread(QThread):
 
     def run(self):
         try:
-            serial_connect(self.COM)
+            self.ser = serial_connect(self.COM)
             print("连接成功")
             self.state = 1
         except:
@@ -43,11 +43,13 @@ class ScanSerialThread(QThread):
                 self.devices.append(port.device)
 
             print(self.devices)
-            # 发射工作完成信号
-            self.work_finished.emit()
             self.state = 1
         except:
+            print("扫描串口失败")
             self.state = 0
+
+        # 发射工作完成信号
+        self.work_finished.emit()
 
 class Fail_Connect(QMainWindow):
     def __init__(self):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time : 2023/8/28 17:58
 # @Author : IoT_H2
-# @FileName: UI_color_palette.py.py
+# @FileName: Color_Palette.py.py
 # @Software: PyCharm
 
 import sys
