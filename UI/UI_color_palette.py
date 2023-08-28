@@ -17,7 +17,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("RGB调色盘")
         self.setGeometry(100, 100, 500, 500)  # 设置窗口大小和位置
 
-        with open("config.json", "r") as f:
+        with open("../Config/config.json", "r") as f:
             # 记录文件中保存的RGB拖动条位置
             config = eval(f.read())
 
@@ -82,11 +82,11 @@ class MainWindow(QMainWindow):
             blue = "0" + blue
 
         RGB = red+green+blue
-        with open("config.json","r") as f:
+        with open("../Config/config.json", "r") as f:
             config = eval(f.read())
             f.close()
 
-        with open("config.json","w") as f:
+        with open("../Config/config.json", "w") as f:
             config["RGB"] = RGB
             config["R"] = R
             config["G"] = G

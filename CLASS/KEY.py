@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-            
 # @Time : 2023/8/28 17:27
 # @Author : IoT_H2
-# @FileName: class_key.py
+# @FileName: KEY.py
 # @Software: PyCharm
 
 import serial

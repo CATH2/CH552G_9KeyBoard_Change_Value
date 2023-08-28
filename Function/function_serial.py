@@ -26,9 +26,6 @@ def serial_connect(COM):
     ser = serial.Serial(COM, 115200)  # 替换为您要连接的串口号和波特率
     return ser
 
-
-
-
 # if __name__ == '__main__':
 #
 #     serial_scan()

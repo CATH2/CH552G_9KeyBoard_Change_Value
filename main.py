@@ -5,14 +5,16 @@
 # @Software: PyCharm
 
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QFileDialog, QAction
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtCore import QThread,pyqtSignal
+
+from CLASS.THREAD import OpenSerialThread,ScanSerialThread,Fail_Connect
+
 
 from UI import start
 from UI import KeyLayout
 
-from function_serial import *
+
 
 class START(QMainWindow,start.Ui_MainWindow):
     def __init__(self):
@@ -36,41 +38,6 @@ class START(QMainWindow,start.Ui_MainWindow):
         self.pushButton_4.clicked.connect(lambda: {self.hide(), KeyLayout(self.matrix["down"]).show()})
 
 class KeyLayout(QMainWindow,KeyLayout.Ui_MainWindow):
-    class OpenSerialThread(QThread):
-        def __init__(self,COM = "COM5"):
-            super().__init__()
-            self.COM = COM
-
-
-        # 定义一个信号，用于在工作完成后发射
-        work_finished = pyqtSignal()
-        def run(self):
-            serial_connect(self.COM)
-            print("连接成功")
-            # 发射工作完成信号
-            self.work_finished.emit()
-
-    class ScanSerialThread(QThread):
-        def __init__(self):
-            super().__init__()
-            self.devices = []
-
-        # 定义一个信号，用于在工作完成后发射
-        work_finished = pyqtSignal()
-        # def __init__(self):
-        #     self.serials = 0
-
-        def run(self):
-            print("开始扫描串口...")
-            serials = serial_scan()
-            for port in serials:
-                self.devices.append(port.device)
-
-            print(self.devices)
-            # 发射工作完成信号
-            self.work_finished.emit()
-
-
     def __init__(self,matrix):
 
         print(matrix)
@@ -84,17 +51,38 @@ class KeyLayout(QMainWindow,KeyLayout.Ui_MainWindow):
         self.pushButton_back.clicked.connect(lambda: {self.hide(), START().show()}) # 返回方向矩阵选择
 
         self.pushButton_scan.clicked.connect(lambda: {self.start_scan()}) # 扫描串口
-        self.pushButton_open.clicked.connect(lambda: {self.start_connect()}) #打开串口
+        self.pushButton_open.clicked.connect(lambda: {self.start_connect(self.comboBox_2.currentText())}) #打开串口
+
+
 
     def start_scan(self):
         print("扫描中...")
-        self.worker_thread = self.ScanSerialThread()
+        self.worker_thread = ScanSerialThread()
         self.worker_thread.start()
+        self.worker_thread.work_finished.connect(self.scan_finished)
 
-    def start_connect(self,COM = "COM5"):
+    def scan_finished(self):
+        if self.worker_thread.state == 1:
+            self.label_LinkState.setText("扫描成功")
+            print(self.worker_thread.devices)
+            self.comboBox_2.addItems(self.worker_thread.devices)
+        else:
+            self.label_LinkState.setText("扫描失败")
+
+    def start_connect(self,COM = "COM6"):
         print("连接中...")
-        self.worker_thread = self.OpenSerialThread(COM)
+        self.worker_thread = OpenSerialThread(COM)
         self.worker_thread.start()
+        self.worker_thread.work_finished.connect(self.connect_finished)
+
+    def connect_finished(self):
+        if self.worker_thread.state == 1:
+            self.label_LinkState.setText("连接成功")
+        else:
+            self.label_LinkState.setText("连接失败")
+
+
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
