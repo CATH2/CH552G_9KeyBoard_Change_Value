@@ -15,15 +15,23 @@ class KEY():
         self.Funcode3 = FunCode3
         self.Funcode4 = FunCode4
         self.Funcode5 = FunCode5
+        self.Endcode = "FF"
 
 class KEYS_Matrix():
-    def __init__(self,matrix = [[9,6,3],[2,5,8],[7,4,1]],):
-        self.KEYS = [0,1,2,3,4,5,6,7,8]
+    def __init__(self,matrix = [[9,6,3],[2,5,8],[7,4,1]]):
+        self.KEYS = [[0,0,0],[0,0,0],[0,0,0]]
         for i in range(3):
             for j in range(3):
-                self.KEYS[i][j] = KEY(KEYMODE="00",ID="00",FunCode1 = "00",FunCode2 = "00",FunCode3 = "00",FunCode4 = "00",FunCode5 = "00")
+                id = str(matrix[i][j] - 1)
+                if len(id) < 2:
+                    id = "0" + id
+                self.KEYS[i][j] = KEY(ID=id)
 
 
+# a = KEYS_Matrix()
+# for i in range(3):
+#     for j in range(3):
+#         print(a.KEYS[i][j].id)
 
 
 

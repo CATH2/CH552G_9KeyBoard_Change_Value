@@ -9,10 +9,11 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QFileDi
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtGui import QPalette, QColor
 
-from CLASS.THREAD import OpenSerialThread,ScanSerialThread
 
 
 from UI import start, KeyLayout, Color_Palette
+from CLASS.KEY import KEY, KEYS_Matrix
+from CLASS.THREAD import OpenSerialThread,ScanSerialThread,SendSerialThread
 
 
 
@@ -31,29 +32,47 @@ class START(QMainWindow,start.Ui_MainWindow):
         super(START, self).__init__()
         self.setupUi(self)
 
+        WINDOW2 = KEYLAYOUT(self.matrix["left"])
+
         # 方向矩阵选择
-        self.pushButton.clicked.connect(lambda: {self.hide(), KEYLAYOUT(self.matrix["up"]).show()})
-        self.pushButton_2.clicked.connect(lambda: {self.hide(), KEYLAYOUT(self.matrix["left"]).show()})
-        self.pushButton_3.clicked.connect(lambda: {self.hide(), KEYLAYOUT(self.matrix["right"]).show()})
-        self.pushButton_4.clicked.connect(lambda: {self.hide(), KEYLAYOUT(self.matrix["down"]).show()})
+        self.pushButton.clicked.connect(lambda: {self.hide(), WINDOW2.__init__(self.matrix["up"]),WINDOW2.show()})
+        self.pushButton_2.clicked.connect(lambda: {self.hide(), WINDOW2.__init__(self.matrix["left"]),WINDOW2.show()})
+        self.pushButton_3.clicked.connect(lambda: {self.hide(), WINDOW2.__init__(self.matrix["right"]), WINDOW2.show()})
+        self.pushButton_4.clicked.connect(lambda: {self.hide(), WINDOW2.__init__(self.matrix["down"]), WINDOW2.show()})
+
+        self.action.triggered.connect(lambda :{self.GoURL("https://blog.csdn.net/qq_53381910?spm=1000.2115.3001.5343")})
+
+    def GoURL(self, url):
+        import webbrowser
+        webbrowser.open(url)
 
 
 
 class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
     def __init__(self,matrix):
+        super(KEYLAYOUT, self).__init__()
+        self.setupUi(self)
+        # 刷新
+        self.UPDATE()
+
         # 首部
-        Header = "4C"
-
+        self.Header = "4C"
+        # 不知道是啥，先定成按键层吧
+        self.Layout = "02"
+        # 灯光模式
         self.LightMode = "00"
+        # RGB颜色
+        self.RGB = "000000"
 
+        # 按键类初始化
+        self.KEYS = KEYS_Matrix(matrix)
 
-        # RGB颜色报文
-        self.RGB = 0
+        # 串口初始化，防止报错
+        self.SER = 0
 
         print(matrix)
 
-        super(KEYLAYOUT, self).__init__()
-        self.setupUi(self)
+
 
         self.pushButton_close.hide() # 隐藏 关闭串口 按键
         self.pushButton_close.clicked.connect(lambda: {self.pushButton_close.hide(),
@@ -77,6 +96,15 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         # combox1 模式选择
         self.comboBox.currentIndexChanged.connect(self.update_light_mode)
         self.update_light_mode()
+
+        self.pushButton_preview.clicked.connect(self.Preview)
+        self.pushButton_save.clicked.connect(self.Download)
+
+
+        # 帮助
+        self.action.triggered.connect(lambda :{self.GoURL("https://blog.csdn.net/qq_53381910?spm=1000.2115.3001.5343")})
+        self.action_2.triggered.connect(lambda: {self.GoURL("https://blog.csdn.net/qq_53381910/article/details/132516628?spm=1001.2014.3001.5501")})
+        self.action_3.triggered.connect(lambda: {self.GoURL("https://oshwhub.com/lh118/136")})
 
 
     # 开始扫描
@@ -109,8 +137,24 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
             self.label_LinkState.setText("连接成功")
             self.pushButton_open.hide()
             self.pushButton_close.show()
+            self.SER = self.OpenSerial.ser
         else:
             self.label_LinkState.setText("连接失败")
+
+    def start_send(self, SER, MESSAGE):
+        if SER == 0:
+            print("请先连接串口")
+        else:
+            print("发送中")
+            self.SendSerial = SendSerialThread(SER, MESSAGE)
+            self.SendSerial.start()
+            self.SendSerial.work_finished.connect(self.send_finished)
+
+
+
+    def send_finished(self):
+        self.label_LinkState.setText("       ")
+        self.label_LinkState.setText("发送完成")
 
     # 颜色更新函数
     def update_color(self):
@@ -131,6 +175,7 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
 
         # 更新颜色
         self.RGB = red + green + blue
+        # 更新背景板颜色
         self.Canvas.setStyleSheet("background-color: #{}{}{};".format(red,green,blue))
 
     def update_light_mode(self):
@@ -154,9 +199,64 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
             self.Canvas.show()
             self.LightMode = "00"
 
+    # 所有的更新函数都放这里吧
     def UPDATE(self):
         self.update_light_mode()
         self.update_color()
+
+
+    # Preview 函数 和 Download 函数相同，只是结尾标志位不同
+    def Preview(self):
+        self.UPDATE()
+        message = self.Header + self.Layout + self.LightMode + self.RGB
+        # 3*3 键盘报文读取
+        for i in range(3):
+            for j in range(3):
+                message += self.KEYS.KEYS[i][j].id + self.KEYS.KEYS[i][j].Funcode1 + self.KEYS.KEYS[i][j].Funcode2 + self.KEYS.KEYS[i][j].Funcode3 + self.KEYS.KEYS[i][j].Funcode4 + self.KEYS.KEYS[i][j].Funcode5 + self.KEYS.KEYS[i][j].Endcode
+
+
+        if len(message) < 258:
+            message = message + "F" * (258 - len(message))
+        # message = self.add_F(message)
+        message += "00"
+        print(message)
+
+        self.start_send(self.SER,message)
+
+
+    # Download 函数 和 Preview 函数相同，只是结尾标志位不同
+    def Download(self):
+        self.UPDATE()
+        message = self.Header + self.Layout + self.LightMode + self.RGB
+        # 3*3 键盘报文读取
+        for i in range(3):
+            for j in range(3):
+                message += self.KEYS.KEYS[i][j].id + self.KEYS.KEYS[i][j].Funcode1 + self.KEYS.KEYS[i][j].Funcode2 + self.KEYS.KEYS[i][j].Funcode3 + self.KEYS.KEYS[i][j].Funcode4 + self.KEYS.KEYS[i][j].Funcode5 + self.KEYS.KEYS[i][j].Endcode
+
+        if len(message) < 258:
+            message = message + "F" * (258 - len(message))
+        # message = self.add_F(message)
+        message += "01"
+        print(message)
+
+        self.start_send(self.SER,message)
+
+    def add_F(s):
+        if len(s) < 260:
+            s = s + "F" * (258 - len(s))
+            # print(s)
+        else:
+            pass
+            # print(s)
+        return s
+
+    def GoURL(self,url):
+        import webbrowser
+        webbrowser.open(url)
+
+
+
+
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\KEYLAYOUT.ui'
+# Form implementation generated from reading ui file '.\KeyLayout.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -96,7 +96,6 @@ class Ui_MainWindow(object):
         self.Slider_G.setObjectName("Slider_G")
         self.verticalLayout.addWidget(self.Slider_G)
         self.Slider_B = QtWidgets.QSlider(self.widget)
-        self.Slider_B.setMaximum(255)
         self.Slider_B.setOrientation(QtCore.Qt.Horizontal)
         self.Slider_B.setObjectName("Slider_B")
         self.verticalLayout.addWidget(self.Slider_B)
@@ -104,23 +103,29 @@ class Ui_MainWindow(object):
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 703, 26))
         self.menubar.setObjectName("menubar")
-        self.menuasd = QtWidgets.QMenu(self.menubar)
-        self.menuasd.setObjectName("menuasd")
+        self.menu = QtWidgets.QMenu(self.menubar)
+        self.menu.setObjectName("menu")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
         self.action = QtWidgets.QAction(MainWindow)
         self.action.setObjectName("action")
-        self.menuasd.addAction(self.action)
-        self.menubar.addAction(self.menuasd.menuAction())
+        self.action_2 = QtWidgets.QAction(MainWindow)
+        self.action_2.setObjectName("action_2")
+        self.action_3 = QtWidgets.QAction(MainWindow)
+        self.action_3.setObjectName("action_3")
+        self.menu.addAction(self.action_3)
+        self.menu.addAction(self.action_2)
+        self.menu.addAction(self.action)
+        self.menubar.addAction(self.menu.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "设置"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "CH552G改键 v0.1"))
         self.pushButton.setText(_translate("MainWindow", "+"))
         self.pushButton_2.setText(_translate("MainWindow", "+"))
         self.pushButton_3.setText(_translate("MainWindow", "+"))
@@ -140,5 +145,7 @@ class Ui_MainWindow(object):
         self.pushButton_close.setText(_translate("MainWindow", "关闭串口"))
         self.pushButton_back.setText(_translate("MainWindow", "返回方向调整"))
         self.pushButton_scan.setText(_translate("MainWindow", "扫描串口"))
-        self.menuasd.setTitle(_translate("MainWindow", "帮助"))
+        self.menu.setTitle(_translate("MainWindow", "帮助"))
         self.action.setText(_translate("MainWindow", "联系作者"))
+        self.action_2.setText(_translate("MainWindow", "环境搭建"))
+        self.action_3.setText(_translate("MainWindow", "开源地址"))

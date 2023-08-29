@@ -27,6 +27,14 @@ def serial_connect(COM):
     ser = serial.Serial(COM, 115200)  # 替换为您要连接的串口号和波特率
     return ser
 
+def serial_send(ser,message):
+    if ser == 0:
+        print("ser = 0")
+    else:
+        print("ok")
+    ser.write(bytes.fromhex(message))
+    pass
+
 
 # while True:
 #     serial_scan()

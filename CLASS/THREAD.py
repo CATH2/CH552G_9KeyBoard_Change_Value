@@ -52,3 +52,18 @@ class ScanSerialThread(QThread):
         # 发射工作完成信号
         self.work_finished.emit()
 
+class SendSerialThread(QThread):
+    def __init__(self,SER,MESSAGE):
+        super().__init__()
+        self.devices = set()
+        self.SER = SER
+        self.MESSAGE = MESSAGE
+
+    # 定义一个信号，用于在工作完成后发射
+    work_finished = pyqtSignal()
+
+    def run(self):
+        serial_send(self.SER,self.MESSAGE)
+        # 发射工作完成信号
+        self.work_finished.emit()
+

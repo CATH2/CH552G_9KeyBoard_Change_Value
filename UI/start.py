@@ -61,7 +61,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "开始"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "选择Typec方向"))
         self.pushButton_2.setText(_translate("MainWindow", "向左←"))
         self.pushButton.setText(_translate("MainWindow", "向上↑"))
         self.label.setText(_translate("MainWindow", "请选择Typec口方向"))
