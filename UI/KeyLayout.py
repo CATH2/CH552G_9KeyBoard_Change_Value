@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\KeyLayout.ui'
+# Form implementation generated from reading ui file '.\KEYLAYOUT.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -63,9 +63,6 @@ class Ui_MainWindow(object):
         self.pushButton_save = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_save.setGeometry(QtCore.QRect(570, 360, 93, 28))
         self.pushButton_save.setObjectName("pushButton_save")
-        self.pushButton_RGB = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_RGB.setGeometry(QtCore.QRect(390, 50, 93, 28))
-        self.pushButton_RGB.setObjectName("pushButton_RGB")
         self.pushButton_close = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_close.setGeometry(QtCore.QRect(190, 380, 93, 28))
         self.pushButton_close.setObjectName("pushButton_close")
@@ -79,6 +76,30 @@ class Ui_MainWindow(object):
         self.label_LinkState.setGeometry(QtCore.QRect(61, 350, 101, 20))
         self.label_LinkState.setText("")
         self.label_LinkState.setObjectName("label_LinkState")
+        self.Canvas = QtWidgets.QTextBrowser(self.centralwidget)
+        self.Canvas.setGeometry(QtCore.QRect(400, 30, 81, 51))
+        self.Canvas.setObjectName("Canvas")
+        self.widget = QtWidgets.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(400, 90, 271, 176))
+        self.widget.setObjectName("widget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.Slider_R = QtWidgets.QSlider(self.widget)
+        self.Slider_R.setMaximum(255)
+        self.Slider_R.setOrientation(QtCore.Qt.Horizontal)
+        self.Slider_R.setObjectName("Slider_R")
+        self.verticalLayout.addWidget(self.Slider_R)
+        self.Slider_G = QtWidgets.QSlider(self.widget)
+        self.Slider_G.setMaximum(255)
+        self.Slider_G.setOrientation(QtCore.Qt.Horizontal)
+        self.Slider_G.setObjectName("Slider_G")
+        self.verticalLayout.addWidget(self.Slider_G)
+        self.Slider_B = QtWidgets.QSlider(self.widget)
+        self.Slider_B.setMaximum(255)
+        self.Slider_B.setOrientation(QtCore.Qt.Horizontal)
+        self.Slider_B.setObjectName("Slider_B")
+        self.verticalLayout.addWidget(self.Slider_B)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 703, 26))
@@ -116,7 +137,6 @@ class Ui_MainWindow(object):
         self.pushButton_open.setText(_translate("MainWindow", "打开串口"))
         self.pushButton_preview.setText(_translate("MainWindow", "预览"))
         self.pushButton_save.setText(_translate("MainWindow", "保存更改"))
-        self.pushButton_RGB.setText(_translate("MainWindow", "RGB调色盘"))
         self.pushButton_close.setText(_translate("MainWindow", "关闭串口"))
         self.pushButton_back.setText(_translate("MainWindow", "返回方向调整"))
         self.pushButton_scan.setText(_translate("MainWindow", "扫描串口"))

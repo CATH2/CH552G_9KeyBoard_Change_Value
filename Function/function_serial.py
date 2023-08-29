@@ -3,6 +3,7 @@
 # @Author : IoT_H2
 # @FileName: function_serial.py
 # @Software: PyCharm
+import time
 
 import serial
 import serial.tools.list_ports
@@ -17,7 +18,7 @@ def serial_scan():
     # 打印可用的串口号
     for port in available_ports:
         serials.append(port)
-        # print(port.device)
+        print(port.device)
 
     return serials
 
@@ -25,6 +26,13 @@ def serial_scan():
 def serial_connect(COM):
     ser = serial.Serial(COM, 115200)  # 替换为您要连接的串口号和波特率
     return ser
+
+
+# while True:
+#     serial_scan()
+#     time.sleep(1)
+
+
 
 # if __name__ == '__main__':
 #

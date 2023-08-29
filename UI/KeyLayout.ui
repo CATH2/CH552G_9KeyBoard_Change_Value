@@ -210,19 +210,6 @@
      <string>保存更改</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_RGB">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>50</y>
-      <width>93</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>RGB调色盘</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_close">
     <property name="geometry">
      <rect>
@@ -274,6 +261,58 @@
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QTextBrowser" name="Canvas">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>30</y>
+      <width>81</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>90</y>
+      <width>271</width>
+      <height>176</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QSlider" name="Slider_R">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Slider_G">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Slider_B">
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

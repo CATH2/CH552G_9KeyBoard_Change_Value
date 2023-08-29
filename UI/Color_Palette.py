@@ -23,12 +23,12 @@ class MainWindow(QMainWindow):
 
             # 创建滑动条
             self.red_slider = QSlider(Qt.Horizontal, self)
-            self.blue_slider.setRange(0,255)
+            self.red_slider.setRange(0,255)
             self.red_slider.setSliderPosition(int(config["R"]))
             self.red_slider.valueChanged.connect(self.update_color)
 
             self.green_slider = QSlider(Qt.Horizontal, self)
-            self.blue_slider.setRange(0,255)
+            self.green_slider.setRange(0,255)
             self.green_slider.setSliderPosition(int(config["G"]))
             self.green_slider.valueChanged.connect(self.update_color)
 
