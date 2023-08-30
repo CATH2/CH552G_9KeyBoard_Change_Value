@@ -143,9 +143,9 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         self.comboBox_2.hide()
         self.comboBox_3.hide()
 
-        # self.Slider_R.hide()
-        # self.Slider_G.hide()
-        # self.Slider_B.hide()
+        self.Slider_R.hide()
+        self.Slider_G.hide()
+        self.Slider_B.hide()
 
         self.Canvas.hide()
 
@@ -191,15 +191,11 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         self.comboBox_2.show()
         self.comboBox_3.show()
 
-        # self.Slider_R.show()
-        # self.Slider_G.show()
-        # self.Slider_B.show()
-        # # RGB调色滑块
-        # self.Slider_R.valueChanged.connect(self.update_color)
-        # self.Slider_G.valueChanged.connect(self.update_color)
-        # self.Slider_B.valueChanged.connect(self.update_color)
-        #
-        # self.Canvas.show()
+        self.Slider_R.show()
+        self.Slider_G.show()
+        self.Slider_B.show()
+
+        self.Canvas.show()
 
         # 界面2 按钮隐藏
         self.pushButton_view.hide()
@@ -225,9 +221,6 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
     def SetKeyNO(self):
         self.StopSetKey()
 
-
-
-        pass
     # 开始扫描
     def start_scan(self):
         print("扫描中...")

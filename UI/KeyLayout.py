@@ -96,6 +96,7 @@ class Ui_MainWindow(object):
         self.Slider_G.setObjectName("Slider_G")
         self.verticalLayout.addWidget(self.Slider_G)
         self.Slider_B = QtWidgets.QSlider(self.layoutWidget)
+        self.Slider_B.setMaximum(255)
         self.Slider_B.setOrientation(QtCore.Qt.Horizontal)
         self.Slider_B.setObjectName("Slider_B")
         self.verticalLayout.addWidget(self.Slider_B)
