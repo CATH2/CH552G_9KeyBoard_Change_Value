@@ -74,6 +74,7 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         print(matrix)
 
 
+        self.StopSetKey()
 
         self.pushButton_close.hide() # 隐藏 关闭串口 按键
         self.pushButton_close.clicked.connect(lambda: {self.pushButton_close.hide(),
@@ -106,8 +107,12 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         # 下载
         self.pushButton_save.clicked.connect(self.Download)
 
+        """界面3"""
         # 编辑按键
-        self.pushButton.clicked.connect(lambda :{})
+        self.pushButton.clicked.connect(lambda :{self.StartSetKey(self.Layout)})
+
+        self.pushButton_Yes.clicked.connect(lambda :{self.SetKeyOK()})
+        self.pushButton_Cancel.clicked.connect(lambda :{self.SetKeyOK()})
 
 
         # 帮助
@@ -116,6 +121,113 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         self.action_3.triggered.connect(lambda: {self.GoURL("https://oshwhub.com/lh118/136")})
 
 
+
+    def StartSetKey(self,Layout):
+        # 界面1 按钮隐藏
+        self.pushButton.hide()
+        self.pushButton_2.hide()
+        self.pushButton_3.hide()
+        self.pushButton_4.hide()
+        self.pushButton_5.hide()
+        self.pushButton_6.hide()
+        self.pushButton_7.hide()
+        self.pushButton_8.hide()
+        self.pushButton_9.hide()
+        self.pushButton_back.hide()
+        self.pushButton_save.hide()
+        self.pushButton_preview.hide()
+        self.pushButton_scan.hide()
+        self.pushButton_open.hide()
+
+        self.comboBox.hide()
+        self.comboBox_2.hide()
+        self.comboBox_3.hide()
+
+        # self.Slider_R.hide()
+        # self.Slider_G.hide()
+        # self.Slider_B.hide()
+
+        self.Canvas.hide()
+
+        # 界面2 按钮显示
+        self.pushButton_view.show()
+
+        self.pushButton_Cancel.show()
+        self.pushButton_Yes.show()
+
+        self.label_fun1.show()
+        self.label_fun2.show()
+        self.label_fun3.show()
+        self.label_fun4.show()
+        self.label_fun5.show()
+
+        self.label_Now_Layout.setText("当前层{}".format(Layout))
+        self.label_Now_Layout.show()
+
+        self.lineEdit_fun1.show()
+        self.lineEdit_fun2.show()
+        self.lineEdit_fun3.show()
+        self.lineEdit_fun4.show()
+        self.lineEdit_fun5.show()
+
+    def StopSetKey(self):
+        # 界面1 按钮显示
+        self.pushButton.show()
+        self.pushButton_2.show()
+        self.pushButton_3.show()
+        self.pushButton_4.show()
+        self.pushButton_5.show()
+        self.pushButton_6.show()
+        self.pushButton_7.show()
+        self.pushButton_8.show()
+        self.pushButton_9.show()
+        self.pushButton_back.show()
+        self.pushButton_save.show()
+        self.pushButton_preview.show()
+        self.pushButton_scan.show()
+        self.pushButton_open.show()
+
+        self.comboBox.show()
+        self.comboBox_2.show()
+        self.comboBox_3.show()
+
+        # self.Slider_R.show()
+        # self.Slider_G.show()
+        # self.Slider_B.show()
+        # # RGB调色滑块
+        # self.Slider_R.valueChanged.connect(self.update_color)
+        # self.Slider_G.valueChanged.connect(self.update_color)
+        # self.Slider_B.valueChanged.connect(self.update_color)
+        #
+        # self.Canvas.show()
+
+        # 界面2 按钮隐藏
+        self.pushButton_view.hide()
+        self.pushButton_Cancel.hide()
+        self.pushButton_Yes.hide()
+
+        self.label_fun1.hide()
+        self.label_fun2.hide()
+        self.label_fun3.hide()
+        self.label_fun4.hide()
+        self.label_fun5.hide()
+
+        self.label_Now_Layout.hide()
+
+        self.lineEdit_fun1.hide()
+        self.lineEdit_fun2.hide()
+        self.lineEdit_fun3.hide()
+        self.lineEdit_fun4.hide()
+        self.lineEdit_fun5.hide()
+
+    def SetKeyOK(self):
+        self.StopSetKey()
+    def SetKeyNO(self):
+        self.StopSetKey()
+
+
+
+        pass
     # 开始扫描
     def start_scan(self):
         print("扫描中...")
