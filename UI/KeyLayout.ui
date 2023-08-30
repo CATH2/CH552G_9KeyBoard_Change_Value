@@ -272,7 +272,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -310,6 +310,31 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QComboBox" name="comboBox_3">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>20</y>
+      <width>111</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>自定义</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>数字层</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>鼠标层</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

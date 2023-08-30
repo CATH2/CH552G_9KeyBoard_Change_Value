@@ -11,9 +11,10 @@ from PyQt5.QtGui import QPalette, QColor
 
 
 
-from UI import start, KeyLayout, Color_Palette
+from UI import start, KeyLayout,KeySet
 from CLASS.KEY import KEY, KEYS_Matrix
 from CLASS.THREAD import OpenSerialThread,ScanSerialThread,SendSerialThread
+
 
 
 
@@ -97,8 +98,16 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         self.comboBox.currentIndexChanged.connect(self.update_light_mode)
         self.update_light_mode()
 
+        # 键盘层选择
+        self.comboBox_3.currentIndexChanged.connect(self.update_layout_mode)
+
+        # 预览
         self.pushButton_preview.clicked.connect(self.Preview)
+        # 下载
         self.pushButton_save.clicked.connect(self.Download)
+
+        # 编辑按键
+        self.pushButton.clicked.connect(lambda :{})
 
 
         # 帮助
@@ -156,6 +165,8 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         self.label_LinkState.setText("       ")
         self.label_LinkState.setText("发送完成")
 
+
+
     # 颜色更新函数
     def update_color(self):
         red = self.Slider_R.value()
@@ -198,6 +209,20 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
             self.Slider_B.show()
             self.Canvas.show()
             self.LightMode = "00"
+
+    def update_layout_mode(self):
+        # 非自定义层
+        if self.comboBox_3.currentText() != "自定义":
+            if self.comboBox_3.currentText() == "数字层":
+                self.Layout = "00"
+            if self.comboBox_3.currentText() == "鼠标层":
+                self.Layout = "01"
+        # 自定义层
+        else:
+            self.Layout = "02"
+
+
+
 
     # 所有的更新函数都放这里吧
     def UPDATE(self):
@@ -253,6 +278,17 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
     def GoURL(self,url):
         import webbrowser
         webbrowser.open(url)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
