@@ -67,3 +67,20 @@ class SendSerialThread(QThread):
         # 发射工作完成信号
         self.work_finished.emit()
 
+class FileWriteThread(QThread):
+    def __init__(self,filename,keyconfig):
+        super().__init__()
+        self.filename = filename
+        self.keyconfig = keyconfig
+
+    # 定义一个信号，用于在工作完成后发射
+    work_finished = pyqtSignal()
+
+    def run(self):
+        with open(self.filename,"w+", buffering=40960) as f:
+            f.write(str(self.keyconfig))
+
+            f.close()
+        # 发射工作完成信号
+        self.work_finished.emit()
+

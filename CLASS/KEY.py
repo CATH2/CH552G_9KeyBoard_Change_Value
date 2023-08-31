@@ -12,18 +12,18 @@ from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLa
 
 
 import serial
-from UI import KeySet
+# from UI import KeySet
 
 
-class KEYSET(QMainWindow,KeySet.Ui_MainWindow):
-    def __init__(self,layout):
-        super(KEYSET, self).__init__()
-        self.setupUi(self)
-
-        self.label_6.setText("当前操作层：{}".format(layout))
+# class KEYSET(QMainWindow,KeySet.Ui_MainWindow):
+#     def __init__(self,layout):
+#         super(KEYSET, self).__init__()
+#         self.setupUi(self)
+#
+#         self.label_6.setText("当前操作层：{}".format(layout))
 
 class KEY():
-    def __init__(self,KEYMODE="00",ID="00",FunCode1 = "00",FunCode2 = "00",FunCode3 = "00",FunCode4 = "00",FunCode5 = "00",KeyLayout = "02"):
+    def __init__(self,KEYMODE="01",ID="00",FunCode1 = "00",FunCode2 = "00",FunCode3 = "00",FunCode4 = "00",FunCode5 = "00",KeyLayout = "02"):
         self.KeyMode = KEYMODE
         self.id = ID
         self.Funcode1 = FunCode1
@@ -34,13 +34,13 @@ class KEY():
         self.Endcode = "FF"
         self.KeyLayout = KeyLayout
 
-        self.Keyset = KEYSET(KeyLayout)
-        self.Keyset.label_6.setText("当前操作层：{}".format(self.KeyLayout))
-
-        # 保存
-        self.Keyset.pushButton_ok.clicked.connect(self.ok)
-        # 取消，返回
-        self.Keyset.pushButton_ok.clicked.connect(self.Keyset.hide)
+        # self.Keyset = KEYSET(KeyLayout)
+        # self.Keyset.label_6.setText("当前操作层：{}".format(self.KeyLayout))
+        #
+        # # 保存
+        # self.Keyset.pushButton_ok.clicked.connect(self.ok)
+        # # 取消，返回
+        # self.Keyset.pushButton_ok.clicked.connect(self.Keyset.hide)
 
     def ok(self):
         self.Funcode1 = self.Keyset.lineEdit_1.text()
@@ -54,35 +54,23 @@ class KEY():
 
 
 class KEYS_Matrix():
-    def __init__(self,matrix = [[9,6,3],[2,5,8],[7,4,1]]):
+    def __init__(self,matrix = [[9,6,3],[2,5,8],[7,4,1]],config_dict = []):
         self.KEYS = [[0,0,0],[0,0,0],[0,0,0]]
+        self.matrix = matrix
+        num = 0
         for i in range(3):
             for j in range(3):
-                id = str(matrix[i][j] - 1)
+                id = str(matrix[i][j])
                 if len(id) < 2:
                     id = "0" + id
-                self.KEYS[i][j] = KEY(ID=id)
 
+                self.KEYS[i][j] = KEY(ID=id,FunCode1="{}".format(str(hex(49+num))[2:]))
+                num += 1
 
-
-# a = KEYS_Matrix()
-# for i in range(3):
-#     for j in range(3):
-#         print(a.KEYS[i][j].id)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def show(self):
+        print("------------------------------------------------------")
+        for i in self.matrix:
+            print(i)
+        for i in self.KEYS:
+            for j in i:
+                print("id {} fun1 {} fun2 {} fun3 {} fun4 {} fun5 {}".format(j.id,j.Funcode1,j.Funcode2,j.Funcode3,j.Funcode4,j.Funcode5))
