@@ -269,7 +269,6 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
             if len(s) < 2:
                 s = "0" + s
             return s
-        print(a,"++++++++++++",b)
         self.keyconfig[self.diretion][self.KEYS.KEYS[a][b].id]["FunCode1"]= add_0(self.lineEdit_fun1.text())
         self.KEYS.KEYS[a][b].Funcode1 = add_0(self.lineEdit_fun1.text())
 
