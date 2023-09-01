@@ -1,1 +1,265 @@
-{'up': {'01': {'FunCode1': '34', 'FunCode2': '00', 'FunCode3': '34', 'FunCode4': '00', 'FunCode5': '00'}, '02': {'FunCode1': '00', 'FunCode2': '45', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '03': {'FunCode1': '00', 'FunCode2': '45', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '04': {'FunCode1': '00', 'FunCode2': '34', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '05': {'FunCode1': '00', 'FunCode2': '23', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '06': {'FunCode1': '34', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '07': {'FunCode1': '45', 'FunCode2': '34', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '08': {'FunCode1': '56', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '09': {'FunCode1': '45', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}}, 'down': {'01': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '02': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '03': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '04': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '05': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '06': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '07': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '08': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '09': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}}, 'left': {'01': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '02': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '03': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '04': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '05': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '06': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '07': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '08': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '09': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}}, 'right': {'01': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '02': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '03': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '04': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '05': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '06': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '07': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '08': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}, '09': {'FunCode1': '00', 'FunCode2': '00', 'FunCode3': '00', 'FunCode4': '00', 'FunCode5': '00'}}}
+{
+  "up":{
+    "00": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "01": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "02": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "03": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"04": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"05": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"06": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"07": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"08": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    }, "09": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    }
+  },
+  "down":{
+    "00": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "01": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "02": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "03": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"04": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"05": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"06": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"07": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"08": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    }, "09": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    }
+  },
+  "left":{
+    "00": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "01": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "02": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "03": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"04": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"05": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"06": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"07": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"08": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    }, "09": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    }
+  },
+  "right":{"00": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "01": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "02": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "03": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"04": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"05": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"06": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"07": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },"08": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    }, "09": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    }
+    }
+  }

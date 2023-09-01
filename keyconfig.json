@@ -1,5 +1,12 @@
 {
   "up":{
+    "00": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
     "01": {
       "FunCode1":"00",
       "FunCode2":"00",
@@ -59,6 +66,13 @@
     }
   },
   "down":{
+    "00": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
     "01": {
       "FunCode1":"00",
       "FunCode2":"00",
@@ -117,7 +131,15 @@
       "FunCode5":"00"
     }
   },
-  "left":{    "01": {
+  "left":{
+    "00": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
+    "01": {
       "FunCode1":"00",
       "FunCode2":"00",
       "FunCode3":"00",
@@ -175,7 +197,13 @@
       "FunCode5":"00"
     }
   },
-  "right":{
+  "right":{"00": {
+      "FunCode1":"00",
+      "FunCode2":"00",
+      "FunCode3":"00",
+      "FunCode4":"00",
+      "FunCode5":"00"
+    },
     "01": {
       "FunCode1":"00",
       "FunCode2":"00",

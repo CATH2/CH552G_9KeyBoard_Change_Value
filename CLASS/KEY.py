@@ -60,7 +60,7 @@ class KEYS_Matrix():
         num = 0
         for i in range(3):
             for j in range(3):
-                id = str(matrix[i][j])
+                id = str(matrix[i][j] - 1)
                 if len(id) < 2:
                     id = "0" + id
 
