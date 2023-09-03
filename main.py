@@ -4,21 +4,16 @@
 # @FileName: main.py.py
 # @Software: PyCharm
 
+
+from PyQt5.QtWidgets import QMainWindow
+from PyQt5 import QtWidgets
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QFileDialog, QAction
-from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtGui import QPalette, QColor
-
-import functools
+from PyQt5.QtCore import QPropertyAnimation, QEasingCurve, QPoint
 
 
-
-from UI import start, KeyLayout,KeySet
-from CLASS.KEY import KEY, KEYS_Matrix
+from UI import start, KeyLayout
+from CLASS.KEY import KEYS_Matrix
 from CLASS.THREAD import OpenSerialThread,ScanSerialThread,SendSerialThread,FileWriteThread
-
-
-
 
 class START(QMainWindow,start.Ui_MainWindow):
     def __init__(self):
@@ -86,12 +81,7 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
 
         # 串口初始化，防止报错
         self.SER = 0
-
-        # print(matrix)
-
-
         self.StopSetKey()
-
         self.pushButton_close.hide() # 隐藏 关闭串口 按键
         self.pushButton_close.clicked.connect(lambda: {self.pushButton_close.hide(),
                                                       self.OpenSerial.ser.close(),
@@ -119,14 +109,12 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         self.comboBox_3.currentIndexChanged.connect(self.update_layout_mode)
 
         # 预览
-        self.pushButton_preview.clicked.connect(self.Preview)
+        self.pushButton_preview.clicked.connect(lambda :{self.Preview()})
         # 下载
         self.pushButton_save.clicked.connect(self.Download)
 
         """界面3"""
         # 编辑按键
-        # functools.partial(mySlot, arg1, arg2)
-
         self.pushButton.clicked.connect(lambda :{self.StartSetKey(0, 0)})
         self.pushButton_2.clicked.connect(lambda: {self.StartSetKey(0, 1)})
         self.pushButton_3.clicked.connect(lambda: {self.StartSetKey(0, 2)})
@@ -145,6 +133,7 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         self.action.triggered.connect(lambda :{self.GoURL("https://blog.csdn.net/qq_53381910?spm=1000.2115.3001.5343")})
         self.action_2.triggered.connect(lambda: {self.GoURL("https://blog.csdn.net/qq_53381910/article/details/132516628?spm=1001.2014.3001.5501")})
         self.action_3.triggered.connect(lambda: {self.GoURL("https://oshwhub.com/lh118/136")})
+        self.action_4.triggered.connect(lambda: {self.GoURL("http://www.baidu.com/")})
 
     def StartSetKey(self,i,j):
         # 界面1 按钮隐藏
@@ -422,13 +411,14 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
 
     # Preview 函数 和 Download 函数相同，只是结尾标志位不同
     def Preview(self):
+        # self.pushButton_preview.setGeometry(QtCore.QRect(480+15, 380+5, 101, 31))
+
         self.UPDATE()
         message = self.Header + self.Layout + self.LightMode + self.RGB
         # 3*3 键盘报文读取
         for i in range(3):
             for j in range(3):
                 message += self.KEYS.KEYS[i][j].KeyMode + self.KEYS.KEYS[i][j].id + self.KEYS.KEYS[i][j].Funcode1 + self.KEYS.KEYS[i][j].Funcode2 + self.KEYS.KEYS[i][j].Funcode3 + self.KEYS.KEYS[i][j].Funcode4 + self.KEYS.KEYS[i][j].Funcode5 + self.KEYS.KEYS[i][j].Endcode
-
 
         if len(message) < 258:
             message = message + "F" * (258 - len(message))
@@ -437,6 +427,7 @@ class KEYLAYOUT(QMainWindow, KeyLayout.Ui_MainWindow):
         print(message)
 
         self.start_send(self.SER,message)
+
 
 
     # Download 函数 和 Preview 函数相同，只是结尾标志位不同
